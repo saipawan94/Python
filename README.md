@@ -314,3 +314,189 @@ w
 
 Here max(), min() are reserved words.
 
+> Argument is a value we pass into the function as its input when we call the function.
+> We use arguments so we can direct function to do differnt kinds of work when we call it different times.
+max('Hello world')
+>
+
+```
+def greet(lang):
+    if lang == 'es':
+        print('Hola')
+    elif lang == 'fr':
+        print('Bonjour')
+    else:
+        print('Hello')
+        
+greet('es')
+
+Hola
+```
+
+Return Values:
+-
+
+Return statement is used to return a value once we called the function.
+
+```
+def greet():
+    return "Hello"
+print(greet(), "Pavan")
+
+Hello Pavan
+```
+
+
+```
+def greet(lang):
+    if lang == 'es':
+        return 'Hola'
+    elif lang == 'fr':
+        return 'Bonjour'
+    else:
+        return 'Hello'
+
+print(greet('es'), 'Pavan')
+
+Hola Pavan
+```
+
+We can pass multiple parameters to a function.
+
+```
+def addtwo(a,b):
+    added = a + b
+    return added
+
+x = addtwo(1,2)
+print(x)
+
+3
+```
+
+Loops and Iteration:
+-----
+
+While --
+
+Until the condition is false the loop will iterate continuously.
+
+```
+n = 5
+
+while n > 0:
+    print(n)
+    n = n -1
+print('Loop Completed')
+print(n)
+
+```
+
+This loop iterates until n = 0.
+If the condition fails it wont touch the block of code inside the loop. In this condition its similar to IF statement because If will fail if condition is false.
+
+**break** statement will break the loop and comes out of loop immediately.
+break should be used with in a loop.
+
+```
+while True:
+    line = input('> ')
+    if line == 'done':
+        break
+    print(line)
+print('Done')
+
+> done
+Done
+```
+
+```
+line = input('> ')
+if line == 'done':
+    break
+
+"break" can be used only within a loopPylance
+```
+
+**continue** ends the current iteration and jumps to top of the loop and starts next iteration.
+
+```
+while True:
+    line = input('> ')
+    if line[0] == '#':
+        continue
+    if line == 'done':
+        break
+    print(line)
+print('Done')
+
+> 1
+1
+> done
+Done
+```
+
+While loop is a **indefinite loop**, because they keep going until a logic condition becomes False.
+
+**Definite Loops**(for):
+----
+
+For loop is an definite loop becuase it will run exact number of times which we define. 
+This will have iteration variable, which will helps to iterate.
+For loop will decide how many times it should run the loop.
+
+```
+for i in [3,2,1]:
+    print(i)
+print('ENd of for loop')
+
+3
+2
+1
+ENd of for loop
+```
+
+```
+friends = ['Pavan', 'Sai', 'Gani']
+
+for friend in friends:
+    print('Hello: ', friend)
+print('Welcome!')
+
+Hello:  Pavan
+Hello:  Sai
+Hello:  Gani
+Welcome!
+```
+
+**Largest Number**
+```
+a = [3,41,12,9,74,15]
+b = 0
+
+for i in a:
+    if i > b:
+        b=i
+print('Largest is:', b)
+
+Largest is: 74
+```
+
+Count of numbers:
+-
+```
+a = 0
+b = [1,2,3,4]
+
+for i in b:
+    a = a + 1
+    print(a, i)
+print('Count is: ', a)
+
+1 1
+2 2
+3 3
+4 4
+Count is:  4
+```
+
