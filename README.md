@@ -500,3 +500,109 @@ print('Count is: ', a)
 Count is:  4
 ```
 
+Summing using loop:
+-
+```
+a = 0
+b = [1,2,3,4]
+
+for i in b:
+    a = a + i
+    print(a, i)
+print('Count is: ', a)
+
+1 1
+3 2
+6 3
+10 4
+Count is:  10
+```
+
+Average in a Loop:
+-
+```
+count=0
+sum=0
+
+print('Before', count, sum)
+for value in [1,2,3,4]:
+    count = count + 1
+    sum = sum + value
+    print(count, sum, value)
+print('After', count, sum, sum/count)
+
+Before 0 0
+1 1 1
+2 3 2
+3 6 3
+4 10 4
+After 4 10 2.5 
+```
+
+Filtering in a Loop:
+-
+```
+print('Before')
+for value in [1,2,3,4,5]:
+    if value > 3:
+        print('Large number is: ', value)
+print('After')
+
+Before
+Large number is:  4   
+Large number is:  5   
+After
+```
+
+Search using a Boolean Variable:
+-
+```
+found = False
+
+print('Before', False)
+
+for value in [9, 41, 12, 3, 74, 15]:
+    if value == 3:
+        found = True
+        print(value, found)
+    else:
+        found = False
+        print(value, found)
+print('After', found)
+
+Before False
+9 False    
+41 False   
+12 False   
+3 True     
+74 False   
+15 False   
+After False
+```
+
+Smallest value using for, if.
+
+**None** datatype means empty.
+
+```
+smallest = None
+print('Before')
+
+for value in [9, 41, 12, 3, 74, 15]:
+    if smallest == None:
+        smallest = value
+    elif value < smallest:
+        smallest = value
+    print(smallest, value)
+print('Smallest is:', smallest)
+
+Before
+9 9
+9 41
+9 12
+3 3
+3 74
+3 15
+Smallest is: 3
+```
+
