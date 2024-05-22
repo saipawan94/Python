@@ -606,3 +606,207 @@ Before
 Smallest is: 3
 ```
 
+**is and is not Operators**
+These are used in logical expressions, it is stronger than "==".
+0 == 0.0 --> True
+0 is 0.0 --> false
+
+```
+smallest = None
+print('Before')
+
+for value in [9, 41, 12, 3, 74, 15]:
+    if smallest is None:
+        smallest = value
+    elif value < smallest:
+        smallest = value
+    print(smallest, value)
+print('Smallest is:', smallest)
+
+Before
+9 9
+9 41
+9 12
+3 3
+3 74
+3 15
+Smallest is: 3
+```
+
+Strings:
+--
+
+> It is a sequence of characters.
+> We can use single-quotes or double-quotes.
+> For strings, + means concatenation.
+> If a string contains numbers, it is still a string.
+> We can convert numbers in a string to numbers using int().
+> Reading input from user is always string, we have to parse and convert the data.
+>
+
+```
+name = input('Enter: ')
+print(name)
+
+Enter: Pavan
+Pavan  
+
+apple = input('Enter: ')
+
+x = apple - 10
+
+print(x)
+
+Enter: 100
+Traceback (most recent call last):
+  File "c:\Users\veprathi\Downloads\print('Hello World').py", line 6, in <module>
+    x = apple - 10
+        ~~~~~~^~~~
+TypeError: unsupported operand type(s) for -: 'str' and 'int'
+
+apple = input('Enter: ')
+
+x = int(apple) - 10
+
+print(x)
+
+Enter: Pavan
+Pavan
+Enter: 100
+90
+```
+
+Here apple = 100 is string type, so its failing if we substract with numeric values before converting to int.
+
+* We can get any single character from the string by using index values.
+* String index starts with zero.
+
+![image](https://github.com/saipawan94/Python/assets/82724257/d7039f75-38c8-4392-a279-ca8d66c9082a)
+
+```
+fruit = 'banana'
+
+letter = fruit[1]
+print(letter)
+
+a
+```
+
+len():
+-
+print(len(fruit))
+6
+
+Looping through Strings:
+-
+
+```
+#fruit = 'banana'
+index = 0
+
+while index < len(fruit):
+    letter = fruit[index]
+    print(index, letter)
+    index = index + 1
+
+0 b
+1 a
+2 n
+3 a
+4 n
+5 a
+```
+```
+fruit = 'banana'
+index = 0
+for letter in fruit:
+    print(index, letter)
+    index = index + 1
+
+0 b
+1 a
+2 n
+3 a
+4 n
+5 a
+```
+Count letters in a string:
+-
+```
+fruit = 'banana'
+count = 0
+
+for letter in fruit:
+    if letter == 'a':
+        count = count + 1
+print(count)
+
+3
+
+fruit = 'banana'
+index = 0
+count = 0
+
+while index < len(fruit):
+    letter = fruit[index]
+    index = index + 1
+    if letter == 'a':
+        count = count + 1
+print(count)
+```
+
+**in will iterate each letter its pointing to**
+
+String Slicing:
+--
+
+We can slice a string using **colon operator**
+
+```
+s = 'Venkata Sai Pavan'
+
+print(s[0:7])
+
+# If we are beyond the index limit example 100, it wont through any error.
+print(s[0:100])
+
+# If we remove start or end of the slice it assume the beginning or end of string.
+
+print(s[:2])
+
+print(s[8:])
+print(s[:])
+```
+
+[0:7] --> 0 is tee starting and 6 will be the ending.
+
+
+String concatenation:
+-
+```
+a = 'Hello'
+
+b = a + 'There'
+
+print(b)
+
+c = a + ' ' + 'There'
+
+print(c)
+```
+By using + we can concatenate the string.
+
+**in** is alogical operator which results in True Or False.
+
+```
+fruit = 'banana'
+
+print('n' in fruit)
+
+if 'a' in fruit:
+    print('Found It')
+
+True
+Found It
+```
+
