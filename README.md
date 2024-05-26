@@ -883,3 +883,162 @@ Hello  Pavan
  Hello  Pavan
 Hello  Pavan
 ```
+lstrip() --> removes whitespaces from left
+rstrip() --> removes whitespaces from right
+strip() --> removes whitespaces from both the sides.
+
+startswith() is a logical statement gives TRUE or FALSE.
+```
+greet = 'Hello  Pavan'
+
+analyze = greet.startswith('Hello')
+
+print(analyze)
+
+analyze1 = greet.startswith('h')
+print(analyze1)
+
+True
+False
+```
+
+Parsing and extracting:
+-
+
+```
+Problem statement, I have a From subject where i need to extract domain name from it.
+mail = 'From aws.amazon@utc.ie Sat Jan 5 09:14:16 2008'
+
+domain = mail.find('@')
+
+print(domain)
+
+domain1 = mail.find(' ', domain)
+
+print(domain1)
+
+host = mail[domain+1 : domain1]
+print(host)
+
+15
+22
+utc.ie
+```
+
+
+Reading Files:
+-
+
+A text file can be a sequence of lines.
+
+By using **open()** function we can open a file and can read using python.
+Its similar to File -> Open in Windows.
+filename is a string.
+MOde can be read, write, close, open.
+
+```
+log = open('C:/Users/veprathi/Downloads/postgresql.log.2024-05-23-14')
+
+print(log)
+
+<_io.TextIOWrapper name='C:/Users/veprathi/Downloads/postgresql.log.2024-05-23-14' mode='r' encoding='cp1252'>
+```
+
+Here 'log' is a handler/ variable to hold the data of the file.
+open() gives a traceback if input file name does not exists.
+
+newline:
+-
+\n is a special character for new line.
+New line is still a character and considered as a character while calculating the length.
+```
+stuff = 'Hello\nWorld!'
+print(stuff)
+print(len(stuff))
+
+Hello 
+World!
+12
+```
+
+A textfile has a newlines(\n) at the end of of each line.
+
+```
+2024-05-23 14:04:10 UTC::@:[397]:LOG: checkpoint complete: wrote 1 buffers (0.0%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.106 s, sync=0.002 s, total=0.117 s; sync files=1, longest=0.002 s, average=0.002 s; distance=65536 kB, estimate=65536 kB\n
+2024-05-23 14:09:10 UTC::@:[397]:LOG: checkpoint starting: time\n
+2024-05-23 14:09:10 UTC::@:[397]:LOG: checkpoint complete: wrote 1 buffers (0.0%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.106 s, sync=0.002 s, total=0.118 s; sync files=1, longest=0.002 s, average=0.002 s; distance=65535 kB, estimate=65536 kB\n
+2024-05-23 14:14:10 UTC::@:[397]:LOG: checkpoint starting: time\n
+```
+
+>> To read lines in a file, python treats each line as a sequence of strings.
+>> By using for loop we can iterate through each line in a sequence order.
+>>
+
+
+```
+log = open('C:/Users/veprathi/Downloads/postgresql.log.2024-05-23-14')
+
+for line in log:
+    print(line)
+
+2024-05-23 14:04:10 UTC::@:[397]:LOG:  checkpoint starting: time
+
+2024-05-23 14:04:10 UTC::@:[397]:LOG:  checkpoint complete: wrote 1 buffers (0.0%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.106 s, sync=0.002 s, total=0.117 s; sync files=1, longest=0.002 s, average=0.002 s; distance=65536 kB, estimate=65536 kB
+
+2024-05-23 14:09:10 UTC::@:[397]:LOG:  checkpoint starting: time
+
+```
+
+The output of this having additional empty line between the lines. Because each line in text file ends with \n and also print statement gives you additional \n.
+
+Counting Lines:
+-
+For loop is reading each line in a sequence and prints the counts.
+This will not each each character it reads a line at a time.
+```
+log = open('C:/Users/veprathi/Downloads/postgresql.log.2024-05-23-14')
+count = 0
+for line in log:
+    count = count + 1
+print('Line Count is ', count)
+    
+Line Count is  24
+```
+
+To read whole file and its characters we have to use read().
+
+```
+log = open('C:/Users/veprathi/Downloads/postgresql.log.2024-05-23-14')
+inp = log.read()
+print(len(inp))
+
+3864
+```
+
+```
+a = '2024-05-23 14:04:10 UTC::@:[397]:LOG:  checkpoint starting: time, '
+
+print(a.find('checkpoint complete'))
+
+-1
+```
+
+Print the lines starts with 'checkpoint complete' 
+>> if it wont find the word. its printing index as -1.
+>> So i used if condition not to use that line.
+
+
+```
+log = open('C:/Users/veprathi/Downloads/postgresql.log.2024-05-23-14')
+
+
+for word in log:
+    word = word.rstrip()
+    start = word.find('checkpoint complete')
+    if start == -1:
+        continue
+    else:
+        print(word, +  start)
+
+
+```
