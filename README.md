@@ -989,7 +989,9 @@ for line in log:
 
 ```
 
+
 The output of this having additional empty line between the lines. Because each line in text file ends with \n and also print statement gives you additional \n.
+to get rid of this use rstrip() to remove \n in the end.
 
 Counting Lines:
 -
@@ -1041,4 +1043,56 @@ for word in log:
         print(word, +  start)
 
 
+```
+
+We can look for a string in a file by using 'in' operator.
+
+```
+log = open('C:/Users/veprathi/Downloads/postgresql.log.2024-05-23-14')
+
+for line in log:
+    line = line.rstrip()
+    #print(line)
+    if not 'checkpoint' in line:
+        continue
+    print(line)
+```
+we can input a file name using input command.
+
+
+
+```
+log = input('Enter filename: ')
+log=open(log)
+count = 0
+for line in log:
+    if line.startswith('2024-05-23'):
+        count = count + 1
+print(count)
+
+Enter filename: bla bla
+Traceback (most recent call last):
+  File "c:\Users\veprathi\Downloads\print('Hello World').py", line 12, in <module>
+    log=open(log)
+        ^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'bla bla'
+```
+
+This will trace back the error if we enter wrong filename. An alternative for this is.
+
+```
+log = input('Enter filename: ')
+try:
+    log=open(log)
+except:
+    print('Filename is wrong.')
+    quit()
+count = 0
+for line in log:
+    if line.startswith('2024-05-23'):
+        count = count + 1
+print(count)
+
+Enter filename: b
+Filename is wrong.
 ```
