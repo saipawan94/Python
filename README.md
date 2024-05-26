@@ -1096,3 +1096,333 @@ print(count)
 Enter filename: b
 Filename is wrong.
 ```
+
+Algorithms & DS:
+-
+
+Set of rules or steps used to solve problem.
+A particular way of organizing data in a computer.
+Most of the variables hold one value in then (x=2, y=3). If we assign another value it will be be replaced with new one.(x=2, x=3).
+
+So List allows you to store multiple values in a single variable.
+
+friends = ['Pavan', 'Gab', 'Deepak']
+
+a = [1,2,[3,4],5]
+
+* Lists have positions and they have order starts from 0.
+* Lists are Mutuable where as strings are not.
+
+```
+friends = ['Pavan', 'Gab', 'Deepak']
+
+string = 'Pavan'
+
+friends[1] = 'Gabriel'
+print(friends)
+
+['Pavan', 'Gabriel', 'Deepak']
+
+string[1]='A'
+print(string)
+
+Traceback (most recent call last):
+  File "c:\Users\veprathi\Downloads\print('Hello World').py", line 8, in <module>
+    string[1]='A'
+    ~~~~~~^^^
+TypeError: 'str' object does not support item assignment
+```
+
+We can construct an index loop using for and an integer iterator.
+range function gives list of range.
+
+```
+friends = ['Pavan', 'Gab', 'Deepak']
+
+print(len(friends))
+
+print(range(len(friends)))
+
+a = list(range(3))
+print(a)
+
+3
+range(0, 3)
+[0, 1, 2]
+```
+
+```
+friends = ['Pavan', 'Gab', 'Deepak']
+
+for i in range(len(friends)):
+    friend = friends[i]
+    print(friend)
+
+or
+
+  
+for i in friends:
+    print(i)
+```
+
+Concatenating lists:
+-
+We can create a new list by adding both with "+".
+```
+a = [1,2,3]
+b = [4,5,6]
+c = a+ b
+
+print(c)
+
+[1, 2, 3, 4, 5, 6]
+```
+
+Lists Slicing:
+-
+
+```
+a = [1,2,3,4,5]
+
+print(a[0:3])
+[1,2,3]
+print(a[:3])
+[1,2,3]
+print(a[3:])
+[4,5]
+print(a[:])
+[1,2,3,4,5]
+print(a[-1])
+[5]
+print(a[:-1])
+[1,2,3,4]
+print(a[:-2])
+[1,2,3]
+print(a[-1:])
+[5]
+print(a[::-1])
+[5,4,3,2]
+print(a[1::-1])
+[2,1]
+print(a[::2])
+[1,3,5]
+```
+
+[start:stop:step]
+
+```
+<class 'list'>
+['__add__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', 
+'__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+```
+
+When we add a new element into a list they will be added at the end of list.
+
+```
+mix = list()
+
+mix.append('book')
+mix.append(99)
+
+print(mix)
+
+['book', 99]
+```
+
+```
+friends = ['Pavan', 'Gab', 'Deepak']
+
+friends.sort()
+
+print(friends)
+
+['Deepak', 'Gab', 'Pavan']
+
+```
+
+Built-in functions:
+-
+```
+nums = [1,2,3,4,5]
+print(len(nums))
+print(max(nums))
+print(min(nums))
+print(sum(nums))
+print(sum(nums)/ len(nums))
+
+5
+5
+1
+15
+3.0
+```
+
+```
+total = 0
+count = 0
+
+while True:
+    inp = input("Enter Number:")
+    if inp == 'done': break
+    value = float(inp)
+    total = total + value
+    count = count + 1
+avg = total/count
+print('Average is :', avg)
+
+Enter Number:1
+Enter Number:2
+Enter Number:3
+Enter Number:4
+Enter Number:5
+Enter Number:done
+Average is : 3.0
+```
+Otherway 
+```
+numlist = list()
+while True:
+    inp = input("Enter Number:")
+    if inp == 'done': break
+    value = float(inp)
+    numlist.append(value)
+avg = sum(numlist)/len(numlist)
+print('Average is:', avg)
+
+Enter Number:1
+Enter Number:2
+Enter Number:3
+Enter Number:4
+Enter Number:5
+Enter Number:done
+Average is: 3.0
+```
+
+In the second method we used list and in-built functions.
+
+Strings & Lists:
+-
+
+```
+abc = 'With three words'
+
+stuff = abc.split()
+
+print(stuff)
+print(len(stuff))
+print(stuff[1])
+
+for w in stuff:
+    print(w)
+
+['With', 'three', 'words']
+3
+three
+With
+three
+words
+```
+
+split() will split the single string into multiple words based on the delimiter provided in split() function.
+When we dont specify any delimiter split() will consider multiple spaces as one delimiter.
+We can specify any delimiter.
+
+```
+abc = 'With         three words'
+
+stuff = abc.split()
+
+print(stuff)
+['With', 'three', 'words']
+
+abc = 'With;three;words'
+stuff = abc.split()
+print(stuff)
+['With;three;words']
+
+stuff = abc.split(';')
+print(stuff)
+['With', 'three', 'words']
+```
+
+```
+log = '2024-05-23 14:04:10 UTC::@:[397]:LOG:  checkpoint complete: wrote 1 buffers (0.0%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.106 s, sync=0.002 s, total=0.117 s; sync files=1, longest=0.002 s, average=0.002 s; distance=65536 kB, estimate=65536 kB'
+words = log.split()
+
+print(words)
+print(words[2])
+
+
+```
+
+Double Split Pattern:
+-
+
+```
+log = '2024-05-23 14:04:10 UTC::@:[397]:LOG:  checkpoint complete: wrote 1 buffers (0.0%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.106 s, sync=0.002 s, total=0.117 s; sync files=1, longest=0.002 s, average=0.002 s; distance=65536 kB, estimate=65536 kB'
+words = log.split()
+
+print(words[2])
+
+words1 = words[2].split('@')
+print(words1)
+
+UTC::@:[397]:LOG:
+['UTC::', ':[397]:LOG:']
+```
+
+```
+log = open('C:/Users/veprathi/Downloads/postgresql.log.2024-05-23-14')
+
+#2024-05-23 14:04:10 UTC::@:[397]:LOG:  checkpoint starting: time
+
+for line in log:
+    line = line.rstrip()
+    line = line.split()
+    if line[0] == 'From':
+        continue
+    print(line[4])
+
+starting:
+complete:
+starting:
+Traceback (most recent call last):
+  File "c:\Users\veprathi\Downloads\print('Hello World').py", line 8, in <module>
+    if line[0] == 'From':
+       ~~~~^^^
+IndexError: list index out of range
+```
+
+This is erroring out because one of the line is empty in the file so line[4] is becoming index out of range.
+
+```
+log = open('C:/Users/veprathi/Downloads/postgresql.log.2024-05-23-14')
+
+#2024-05-23 14:04:10 UTC::@:[397]:LOG:  checkpoint starting: time
+
+for line in log:
+    line = line.rstrip()
+    line = line.split()
+    if len(line) < 3:       # Guadrian line 
+        continue
+    if line[0] == 'From':
+        continue
+    print(line[4])
+
+```
+
+The Guardian line is protecting the other conditional statements from failing.
+
+```
+for line in log:
+    line = line.rstrip()
+    line = line.split()
+    if len(line) < 3 or line[0] == 'From':    # Guardian in compound statement
+        continue
+    print(line[4])
+```
+
+Here "if len(line) < 3 or line[0] == 'From'" guardian statement should come first if not again condition will fail becuase or will not check 2nd statement if 1st statement is true.
+
+Dictionaries:
+-
