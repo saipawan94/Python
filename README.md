@@ -1426,3 +1426,281 @@ Here "if len(line) < 3 or line[0] == 'From'" guardian statement should come firs
 
 Dictionaries:
 -
+
+Dictoniries is a collection of key and value pair.
+Its nothing but we are adding tag to an item.
+Dictionaries are like a bag with no orders. 
+
+```
+purse = dict()
+
+purse['money'] = 12
+purse['candy'] = 3
+purse['tissues'] = 5
+
+print(purse)
+print(purse['candy'])
+
+{'money': 12, 'candy': 3, 'tissues': 5}
+3
+```
+
+Dictinories are like Lists but the difference is key value pair.
+
+```
+
+lst = list()
+lst.append(21)
+lst.append(183)
+
+print(lst)
+lst[0] = 23
+print(lst)
+
+[21, 183]
+[23, 183]
+
+ddd = dict()
+ddd['age'] = 21
+ddd['course'] = 182
+
+print(ddd)
+ddd['age'] = 23
+print(ddd)
+
+{'age': 21, 'course': 182}
+{'age': 23, 'course': 182}
+```
+
+One of the most usecase of dictionaries is counting the words/ occurnace of the word.
+
+
+```
+count = dict()
+
+count['csev'] = 1
+count['cwen'] = 1
+
+print(count)
+
+count['csev'] = count['csev'] + 1
+print(count)
+
+{'csev': 1, 'cwen': 1}
+{'csev': 2, 'cwen': 1}
+```
+
+* In the above example whenever we found a word we are increating its value by 1.
+
+Dictionary tracebacks if there is an error.
+
+```
+count = dict()
+
+names = ['a', 'b', 'c', 'a', 'b']
+
+for name in names:
+    if name not in count:
+        count[name] = 1
+    else:
+        count[name] = count[name] + 1
+print(count)
+
+{'a': 2, 'b': 2, 'c': 1}
+```
+
+The pattern of checking whether key is already available in a dictionaryand assume default value if key not exists
+
+```
+count = dict()
+
+names = ['a', 'b', 'c', 'a', 'b']
+
+for name in names:
+    count[name] = count.get(name,0) + 1
+print(count)
+
+{'a': 2, 'b': 2, 'c': 1}
+```
+
+```
+log  = input('Enter filename:')
+log = open(log)
+logs = log.read()
+
+# print(logs)
+words = logs.split()
+counts = dict()
+
+for word in words:
+    counts[word]=counts.get(word,0) + 1
+print('Counts', counts)
+
+Enter filename:C:/Users/veprathi/Downloads/postgresql.log.2024-05-23-14
+Counts {'2024-05-23': 24, '14:04:10': 2, 'UTC::@:[397]:LOG:': 24, 'checkpoint': 24, 'starting:': 12, 'time': 12, 'From': 3, 'complete:': 12, 'wrote': 12, '1': 24, 'buffers': 12, '(0.0%);': 12, '0': 
+24, 'WAL': 12, 'file(s)': 12, 'added,': 12, 'removed,': 12, 'recycled;': 12, 'write=0.106': 11, 's,': 36, 'sync=0.002': 11, 'total=0.117': 6, 's;': 24, 'sync': 12, 'files=1,': 12, 'longest=0.002': 11, 'average=0.002': 11, 'distance=65536': 9, 'kB,': 12, 'estimate=65536': 12, 'kB': 12, '14:09:10': 2, 'total=0.118': 4, 'distance=65535': 3, '14:14:10': 2, 'total=0.116': 1, '14:19:10': 2, '14:24:10': 2, '14:29:10': 2, 'write=0.117': 1, 'total=0.128': 1, '14:34:10': 2, 'sync=0.003': 1, 'longest=0.003': 1, 'average=0.003': 1, '14:39:10': 1, '14:39:11': 1, '14:44:10': 2, '14:49:10': 2, '14:54:10': 2, '14:59:10': 2}
+```
+
+```
+counts = {'chuck' :1, 'fred' : 42}
+
+for key in counts:
+    print(key, counts[key])
+
+chuck 1
+fred 42
+```
+
+We can get keys, values or both(items).
+
+```
+counts = {'chuck' :1, 'fred' : 42}
+
+print(list(counts))
+print(counts.keys())
+print(counts.values())
+print(counts.items())
+
+['chuck', 'fred']
+dict_keys(['chuck', 'fred'])
+dict_values([1, 42])
+dict_items([('chuck', 1), ('fred', 42)])
+```
+
+Here we are using two for loops one for each line and one for each word in a line.
+```
+log  = input('Enter filename:')
+log = open(log)
+#logs = log.read()
+
+# print(logs)
+#words = logs.split()
+counts = dict()
+
+for line in log:
+    words = line.split()
+    #print(words)
+    for word in words:
+        counts[word] = counts.get(word,0) +1
+#print(counts)
+
+bigword = None
+bigcount = None
+
+for word, count in counts.items():
+    if bigcount is None or count > bigcount:
+        bigword = word
+        bigcount = count
+print(bigword, bigcount)
+
+s, 36      
+```
+
+COunt using dictionaries with different variations.
+
+```
+fname = input('Enter File: ')
+if len(fname) < 5: fname = 'C:/Users/veprathi/Downloads/postgresql.log.2024-05-23-14'
+hand = open(fname)
+
+di = dict()
+for line in hand:
+    line = line.rstrip()
+    #print(line)
+    words = line.split()
+    #print(words)
+    for word in words:
+        print(word)
+        if word in di:
+            di[word] = di[word] + 1
+            print('**EXISTING**')
+        else:
+            di[word] = 1
+            print('**NEW**')
+        print(di[word])
+print(di)
+
+```
+
+```
+di = dict()
+for line in hand:
+    line = line.rstrip()
+    #print(line)
+    words = line.split()
+    #print(words)
+    for word in words:
+
+# If the key is not there the count is zero
+        oldcount = di.get(word, 0)
+        print(word, 'old', oldcount)
+        newcount = oldcount + 1
+        di[word] = newcount
+        print(word, 'New', newcount)
+print(di)
+
+2024-05-23 old 0       
+2024-05-23 New 1       
+14:04:10 old 0
+14:04:10 New 1
+```
+
+Below program is modified version of above two programs we minimized a lot of code in single line by using get()
+```
+fname = input('Enter File: ')
+if len(fname) < 5: fname = 'C:/Users/veprathi/Downloads/postgresql.log.2024-05-23-14'
+hand = open(fname)
+
+di = dict()
+for line in hand:
+    line = line.rstrip()
+    #print(line)
+    words = line.split()
+    #print(words)
+    for word in words:
+        
+        # rETRIVE/ CREATE/ UPDATE COUNTER
+        di[word] = di.get(word,0) + 1
+        print(word, 'new', di[word])
+        # oldcount = di.get(word, 0)
+        # print(word, 'old', oldcount)
+        # newcount = oldcount + 1
+        # di[word] = newcount
+        # print(word, 'New', newcount)
+        # # if word in di:
+        # #     di[word] = di[word] + 1
+        # # else:
+        # #     di[word] = 1
+        # # print(word, di[word])
+print(di)
+        
+```
+
+```
+fname = input('Enter File: ')
+if len(fname) < 5: fname = 'C:/Users/veprathi/Downloads/postgresql.log.2024-05-23-14'
+hand = open(fname)
+
+di = dict()
+for line in hand:
+    line = line.rstrip()
+    words = line.split()
+    for word in words:
+        
+        # rETRIVE/ CREATE/ UPDATE COUNTER
+        di[word] = di.get(word,0) + 1
+
+print(di)
+
+largest = -1
+word = None
+for k,v in di.items():
+    #print(k,v)
+    if v > largest:
+        largest = v
+        word = k
+print(word, largest)
+
+s, 36
+```
+
