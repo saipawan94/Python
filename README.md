@@ -146,7 +146,7 @@ Entered floor number is:  1
 Comments in Python are useful to know whats there in code and helps as a heading.
 
 
-COnditional Execution:
+Conditional Execution:
 ------------------------
 If we give two if statements in a program it will execute both the If clauses.
 
@@ -276,7 +276,22 @@ First -1
 Second 123
 ```
 
-So first block fails then its entering into except otherwise it will execute try.
+So first block fails then its entering into except otherwise it will execute try. If we know that code may fail need to catch the exception we can use try/ except.
+
+rawstr = input('Enter a number: ')
+try:
+    ival = int(rawstr)
+    
+except:
+    ival = -1
+
+if ival > 0 :
+    print('Entered number is greater than 0')
+else:
+    print('ENtered value is not a number')
+
+Enter a number: 9
+Entered number is greater than 0
 
 Functions:
 --
