@@ -278,6 +278,7 @@ Second 123
 
 So first block fails then its entering into except otherwise it will execute try. If we know that code may fail need to catch the exception we can use try/ except.
 
+```
 rawstr = input('Enter a number: ')
 try:
     ival = int(rawstr)
@@ -292,6 +293,7 @@ else:
 
 Enter a number: 9
 Entered number is greater than 0
+```
 
 Functions:
 --
@@ -623,6 +625,7 @@ Smallest is: 3
 
 **is and is not Operators**
 These are used in logical expressions, it is stronger than "==".
+Use IS on Boolean and None types, better avoid using it with int, strings,...
 0 == 0.0 --> True
 0 is 0.0 --> false
 
@@ -1147,9 +1150,12 @@ Traceback (most recent call last):
     ~~~~~~^^^
 TypeError: 'str' object does not support item assignment
 ```
+Lists are Mutable & Strings are Not mutable. Refer above error.
+
 
 We can construct an index loop using for and an integer iterator.
-range function gives list of range.
+range function gives LIST of range. Range starts from 0 to n-1.
+
 
 ```
 friends = ['Pavan', 'Gab', 'Deepak']
@@ -1216,7 +1222,7 @@ print(a[:-2])
 print(a[-1:])
 [5]
 print(a[::-1])
-[5,4,3,2]
+[5,4,3,2,1]
 print(a[1::-1])
 [2,1]
 print(a[::2])
@@ -1525,6 +1531,8 @@ print(count)
 ```
 
 The pattern of checking whether key is already available in a dictionaryand assume default value if key not exists
+
+**.get will check dictionary if the key exist or not, If not exist it will assign default value which we specify. If exists will wont assign any value to the key.**
 
 ```
 count = dict()
