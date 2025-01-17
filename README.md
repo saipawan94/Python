@@ -391,6 +391,28 @@ print(x)
 3
 ```
 
+Arguments in functions:
+-
+
+Default arguments, Key word arguments, optional arguments, Positional arguments, arbitary arguments
+
+```
+def sum(a,b=1,c=2):
+    return(a)
+
+print(sum(a=1))
+
+```
+
+> If we passed argument values while defining function then its optional to pass arguments while running function.
+> If we didn't passed argument values while defining function its mandatory to pass while running function.
+> We can override default arguments.
+> print(add(1,b=3,1)) This will give an error, becauase positional arguments(a,c) doesn't pass after KWargs(b).
+> while executing function order of arguments doesn't matter print(add(1,c=3,b=2)).
+> 
+
+
+
 Loops and Iteration:
 -----
 
