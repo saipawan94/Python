@@ -1749,3 +1749,137 @@ print(word, largest)
 s, 36
 ```
 
+TUPLES:
+-
+
+Tuples are similar to list but tuples are immutable.
+
+```
+x =(1,2,3)
+print(x[2])
+
+x[2]=6
+print(x)
+
+3
+Traceback (most recent call last):
+  File "c:\Users\veprathi\Downloads\print('Hello World').py", line 4, in <module>
+    x[2]=6
+    ~^^^
+TypeError: 'tuple' object does not support item assignment
+```
+
+```
+x.sort()
+x.append(5)
+x.reverse()
+
+All above will error out
+
+Traceback (most recent call last):
+  File "c:\Users\veprathi\Downloads\print('Hello World').py", line 4, in <module>
+    y=x.sort()
+      ^^^^^^
+AttributeError: 'tuple' object has no attribute 'sort'
+```
+
+We can just use only count & index.
+Tuples are faster enough in terms of memory.
+We prefer tuples over list for temporary variables.
+
+```
+print(dir(x))
+['__add__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'count', 'index']
+```
+
+items() method in dictionary returns List of Tuples.
+
+```
+d = dict()
+d['a'] = 1
+d['b'] = 2
+
+for k,v in d.items():
+    print(k,v)
+    
+tups=d.items()
+
+print(tups)
+
+a 1
+b 2
+dict_items([('a', 1), ('b', 2)])
+```
+
+**Sorting List of Tuples**
+
+To get a sorted version of dictionary we can use ability of sorting List of tuples.
+```
+d = dict()
+d['b'] = 3
+d['a'] = 1
+
+
+print(d.items())
+tups=sorted(d.items())
+
+print(tups)
+
+dict_items([('b', 3), ('a', 1)])
+[('a', 1), ('b', 3)]
+
+
+tups=sorted(d.items(), reverse=True)
+[('b', 3), ('a', 1)]
+```
+
+Above example sort based on **key**, to sort based on **value** use following technique.
+reverse=True --> ascending order
+
+```
+a ={'c':2, 'b':3, 'a':1}
+tmp = list()
+
+for k,v in a.items():
+    tmp.append((v,k))
+
+print(tmp)
+
+tmp1 = sorted(tmp, reverse=True)
+print(tmp1)
+
+[(2, 'c'), (3, 'b'), (1, 'a')]
+[(3, 'b'), (2, 'c'), (1, 'a')]
+```
+
+Below program uses lists, dict, tuples 
+```
+fhand = open('C:/Users/veprathi/Downloads/postgresql.log.2024-05-23-14')
+counts=dict()
+
+for line in fhand:
+    line=line.rstrip()
+    words = line.split()
+    for word in words:
+        counts[word]=counts.get(word,0)+1
+#print(counts.items())
+
+list = list()
+
+for k,v in counts.items():
+    list.append((v,k))
+
+list=sorted(list, reverse=True)
+
+#print(list)
+
+for v,k in list[:10]:
+    print(k,v)
+```
+
+Shortest form
+```
+a ={'a':5, 'c':10, 'b':23}
+
+print(sorted([(v,k) for k, v in a.items()]))
+```
